@@ -27,10 +27,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::group(['prefix' => 'bookings'], function () {
         Route::post('', [BookingController::class, 'booking'])->name('booking');
         Route::get('', [BookingController::class, 'all'])->name('allBookings');
-        Route::delete('{id}', [BookingController::class, 'cancel'])->name('getBookings');
+        Route::delete('{id}', [BookingController::class, 'cancel'])->name('cancelBookings');
         Route::get('{id}', [BookingController::class, 'get'])->name('getBookings');
     });
 });
 
-Route::post('/register', [UserController::class, 'register'])->name('register');
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);

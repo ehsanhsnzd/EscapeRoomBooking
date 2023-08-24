@@ -3,8 +3,8 @@ services:
     app:
         restart: always
         build:
-            context: ./dockerConfig/docker
-            dockerfile: app.dockerfile
+            context: .
+            dockerfile: ./dockerConfig/docker/app.dockerfile
         volumes:
             - '.:/var/www/html'
         depends_on:
@@ -12,6 +12,8 @@ services:
         environment:
           DB_PORT: "3306"
           DB_HOST: "mysql"
+        ports:
+            - "5173:5173"
 
     web:
       restart: always
@@ -23,7 +25,6 @@ services:
         - '.:/var/www/html'
       ports:
         - "8000:80"
-        - "5173:5173"
       depends_on:
         - app
       links:

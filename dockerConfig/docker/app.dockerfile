@@ -22,6 +22,7 @@ ENV PHPIZE_DEPS \
     libxslt-dev \
     # for intl extension
     icu-dev
+
 RUN apk add --virtual .persistent-deps \
     # for intl extension
     icu-libs \
@@ -42,6 +43,8 @@ RUN apk add --virtual .persistent-deps \
     oniguruma-dev \
     libgcrypt \
     libzip-dev
+RUN apk add --update nodejs npm
+COPY . /var/www/html
 RUN set -xe \
     # workaround for rabbitmq linking issue
     && ln -s /usr/lib /usr/local/lib64 \
@@ -80,3 +83,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 VOLUME ["/var/www/html"]
 WORKDIR /var/www/html
+
+RUN npm install
