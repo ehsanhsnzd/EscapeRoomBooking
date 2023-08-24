@@ -15,17 +15,24 @@ Use make file for deploy and installation
 
 ### Deploy
 
-command : make deploy
+command : 
 
+```sh 
+make deploy
+```
 ### Logs
 
 for logs use: 
+```sh 
 make logs
+```
 
 ### clean logs
 for clean project logs use:
 
+```sh 
 make cleanup
+```
 
 You need to install node & npm outside of container
 
