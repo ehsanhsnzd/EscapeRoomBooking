@@ -14,17 +14,20 @@ class RoomSeeder extends Seeder
     {
 
          \App\Models\Room::create([
+              'id' =>1,
+              'name' => Text::randomLetter(),
+             'fee' => Text::numberBetween(10000, 99000),
+             'participants' => 5,
+         ]);
+         \App\Models\Room::create([
+             'id' =>2,
              'name' => Text::randomLetter(),
              'fee' => Text::numberBetween(10000, 99000),
              'participants' => 5,
          ]);
          \App\Models\Room::create([
-             'name' => Text::randomLetter(),
-             'fee' => Text::numberBetween(10000, 99000),
-             'participants' => 5,
-         ]);
-         \App\Models\Room::create([
-             'name' => Text::randomLetter(),
+              'id' =>3,
+              'name' => Text::randomLetter(),
              'fee' => Text::numberBetween(10000, 99000),
              'participants' => 5,
          ]);
